@@ -6,7 +6,10 @@
   "scripts": {
     "lint": "eslint ./app",
     "precommit": "npm run lint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "npm run build -- --watch",
+    "start": "nodemon -w webpack.config.js -x webpack-dev-server --open"
   },
   "repository": {
     "type": "git",
