@@ -1,5 +1,6 @@
 import { EventEmitter } from '../../utils/eventEmitter.js';
 import { Router } from '../../utils/router.js';
+import { Constants } from '../../constants/constants.js';
 
 export class FilmsListView {
   constructor () {
@@ -18,9 +19,8 @@ export class FilmsListView {
 
       div.innerHTML = 'No data found';
       container.appendChild(div);
-    } else {
+    } else
       this.buildList(data);
-    }
   }
 
   buildList (films) {
@@ -34,13 +34,13 @@ export class FilmsListView {
       let strHmtl = '<div class="panel-group">';
 
       films.forEach((item, index) => {
-        strHmtl += '<div class="panel panel-primary" style="width: 350px;"><div class="panel-body"><div> ' + films[index].Title + '</div><div> ' + films[index].Year + '</div><div> ' + films[index].Type + '</div><div> <img class="poster-image" data-index="' + index + '" src=' + films[index].Poster + '/></div></div></div></div>';
+        strHmtl += `<div class="panel panel-primary" style="width: 350px;"><div class="panel-body"><div> ${films[index].Title}</div><div> ${films[index].Year}</div><div> ${films[index].Type}</div><div> <img class="poster-image" data-index="${index}" src=${films[index].Poster}/></div></div></div></div>`;
       });
       strHmtl += '</div>';
       div.innerHTML = strHmtl;
       container.appendChild(div);
     }
-    let images = document.querySelectorAll('.poster-image');
+    const images = document.querySelectorAll('.poster-image');
 
     images.forEach(item => {
       item.addEventListener('click', this.getImageInfo);
@@ -48,7 +48,8 @@ export class FilmsListView {
   }
 
   getImageInfo (e) {
-    var path = 'details?id=' + e.target.dataset.index;
+    var path = `${Constants.routes[2]}${e.target.dataset.index}`;
+
     new Router().navigate(path);
   }
 }

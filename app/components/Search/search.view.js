@@ -4,7 +4,7 @@ import { Router } from '../../utils/router.js';
 let instance = null;
 
 export class SearchView {
-  constructor() {
+  constructor () {
     if (!instance) {
       this.eventEmitter = new EventEmitter();
       this.router = new Router();
@@ -13,12 +13,13 @@ export class SearchView {
     return instance;
   }
 
-  init() {
+  init () {
     this.searchContainer = document.getElementById('search-container');
 
     if (!this.searchContainer.children.length) {
-      var div = document.createElement('div');
-      div.innerHTML = '<input id="search-field" /><button id="search-button">Search</button>'
+      const div = document.createElement('div');
+
+      div.innerHTML = '<input id="search-field" /><button id="search-button">Search</button>';
       this.searchContainer.appendChild(div);
 
       this.getElemRefs();
@@ -26,28 +27,24 @@ export class SearchView {
     }
   }
 
-  getElemRefs() {
+  getElemRefs () {
     this.searchButton = document.getElementById('search-button');
     this.searchInput = document.getElementById('search-field');
   }
 
-  addListeners() {
+  addListeners () {
     this.searchButton.addEventListener('click', this.searchHandler.bind(this));
   }
 
-  clearSearch() {
-    this.searchInput.value = '';
-  }
+  searchHandler () {
+    const path = `home?search=${document.getElementById('search-field').value}`;
 
-  searchHandler() {
-    var path = 'home?search=' + document.getElementById('search-field').value;
     this.router.navigate(path);
   }
 
-  search(val) {
+  search (val) {
     this.searchInput.value = val || this.searchInput.value;
-    if (this.searchInput.value) {
+    if (this.searchInput.value)
       this.eventEmitter.triggerEvent('searchController', 'search', this.searchInput.value);
-    }
   }
 }

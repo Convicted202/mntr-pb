@@ -4,16 +4,17 @@ import { FilmsListView } from '../FilmsList/filmsList.view.js';
 import { Model } from '../../utils/model/model.js';
 
 export class SearchContainer {
-  constructor(query) {
+  constructor (query) {
     this.query = query;
   }
 
-  init() {
+  init () {
     let view = new SearchView();
     view.init();
-    let model = new Model();
-    let searchController = new SearchController(model, view);
-    let filmsListView = new FilmsListView();
+    let model = new Model(),
+      searchController = new SearchController(model, view),
+      filmsListView = new FilmsListView();
+
     filmsListView.init();
     view.search(this.query);
   }

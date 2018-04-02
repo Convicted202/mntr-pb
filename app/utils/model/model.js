@@ -4,7 +4,7 @@ import { EventEmitter } from '../../utils/eventEmitter.js';
 var instance = null;
 
 export class Model {
-  constructor() {
+  constructor () {
     if (!instance) {
       this.fetchService = new FetchService();
       this.eventEmitter = new EventEmitter();
@@ -15,11 +15,9 @@ export class Model {
     return instance;
   }
 
-  search(arg) {
+  search (arg) {
     this.fetchService.getFilmsBySearchValue(arg)
-      .then((response) => {
-        return response.json();
-      }).then(searchData => {
+      .then(response => response.json()).then(searchData => {
         this.films = searchData.Search;
         this.eventEmitter.triggerEvent('filmsView', 'render', this.films);
       });

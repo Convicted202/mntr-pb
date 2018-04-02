@@ -1,5 +1,5 @@
 export const Constants = {
-  serviceUrl: 'http://www.omdbapi.com',
+  serviceUrl:    'http://www.omdbapi.com',
   serviceAPIKey: 'b579530b',
-  routes: ['home', 'home?search=', 'details?id=']
-}
+  routes:        ['home', 'home?search=', 'details?id=']
+};

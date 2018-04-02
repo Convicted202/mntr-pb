@@ -7,7 +7,6 @@ export class DetailsContainer {
     this.query = query;
   }
 
-
   init () {
     this.model = new Model();
     this.filmsListView = new FilmsListView();

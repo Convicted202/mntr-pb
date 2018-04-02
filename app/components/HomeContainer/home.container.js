@@ -5,9 +5,7 @@ import { Model } from '../../utils/model/model.js';
 
 
 export class HomeContainer {
-  constructor() { }
-
-  init() {
+  init () {
     this.model = new Model();
     this.searchView = new SearchView();
     this.searchView.init();
