@@ -17,9 +17,14 @@ export class SearchView {
     this.searchContainer = document.getElementById('search-container');
 
     if (!this.searchContainer.children.length) {
-      const div = document.createElement('div');
+      const div = document.createElement('div'),
+        header = document.createElement('h2');
 
+      header.innerHTML = 'Film Tracker';
+
+      div.className = 'col-md-12 text-center';
       div.innerHTML = '<input id="search-field" /><button id="search-button">Search</button>';
+      this.searchContainer.appendChild(header);
       this.searchContainer.appendChild(div);
 
       this.getElemRefs();

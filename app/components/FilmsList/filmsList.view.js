@@ -34,7 +34,15 @@ export class FilmsListView {
       let strHmtl = '<div class="panel-group">';
 
       films.forEach((item, index) => {
-        strHmtl += `<div class="panel panel-primary" style="width: 350px;"><div class="panel-body"><div> ${films[index].Title}</div><div> ${films[index].Year}</div><div> ${films[index].Type}</div><div> <img class="poster-image" data-index="${index}" src=${films[index].Poster}/></div></div></div></div>`;
+        strHmtl += `
+        <div class="panel panel-primary" style="display: inline-block; width:350px; margin: 20px;">          
+          <div class="panel-body" style="margin: 10px;">
+            <div> ${films[index].Title}</div>            
+            <div> ${films[index].Year}</div>
+            <div> ${films[index].Type}</div>
+            <img class="poster-image" data-index="${index}" src=${films[index].Poster}/>
+          </div>
+        </div>`;
       });
       strHmtl += '</div>';
       div.innerHTML = strHmtl;

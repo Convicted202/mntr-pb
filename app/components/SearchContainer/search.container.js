@@ -9,12 +9,13 @@ export class SearchContainer {
   }
 
   init () {
-    let view = new SearchView();
-    view.init();
-    let model = new Model(),
+    const view = new SearchView(),
+      model = new Model(),
       searchController = new SearchController(model, view),
       filmsListView = new FilmsListView();
 
+    view.init();
+    searchController.init();
     filmsListView.init();
     view.search(this.query);
   }

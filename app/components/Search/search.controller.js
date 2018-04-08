@@ -9,7 +9,6 @@ export class SearchController {
       this.model = model;
       this.view = view;
       instance = this;
-      this.init();
     }
     return instance;
   }
