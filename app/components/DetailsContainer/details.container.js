@@ -1,6 +1,5 @@
-import { FilmsListView } from '../FilmsList/filmsList.view.js';
-import { Model } from '../../utils/model/model.js';
-
+import { FilmView } from '../Film/film.view.js';
+import { Model } from '../../model/model.js';
 
 export class DetailsContainer {
   constructor (query) {
@@ -9,9 +8,10 @@ export class DetailsContainer {
 
   init () {
     this.model = new Model();
-    this.filmsListView = new FilmsListView();
+    this.filmView = new FilmView();
+
     if (this.model.films[this.query]) {
-      this.filmsListView.buildList([this.model.films[this.query]]);
+      this.filmView.buildPanel(this.model.films[this.query]);
       return true;
     }
     return false;

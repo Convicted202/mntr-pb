@@ -1,11 +1,13 @@
-import { EventEmitter } from '../../utils/eventEmitter.js';
+import { EventEmitter } from '../../utils/eventEmitter.service.js';
 import { Router } from '../../utils/router.js';
 import { Constants } from '../../constants/constants.js';
+import { EventHelper } from '../../utils/eventAttachHelper.service.js';
 
 export class FilmsListView {
   constructor () {
     this.router = new Router();
     this.eventEmitter = new EventEmitter();
+    this.eventHelper = new EventHelper();
   }
 
   init () {
@@ -17,6 +19,7 @@ export class FilmsListView {
       const container = document.getElementById('container'),
         div = document.createElement('div');
 
+      container.innerHTML = '';
       div.innerHTML = 'No data found';
       container.appendChild(div);
     } else
@@ -50,9 +53,7 @@ export class FilmsListView {
     }
     const images = document.querySelectorAll('.poster-image');
 
-    images.forEach(item => {
-      item.addEventListener('click', this.getImageInfo);
-    });
+    this.eventHelper.attachEvent(images, 'click', this.getImageInfo);
   }
 
   getImageInfo (e) {

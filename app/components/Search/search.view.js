@@ -1,4 +1,4 @@
-import { EventEmitter } from '../../utils/eventEmitter.js';
+import { EventEmitter } from '../../utils/eventEmitter.service.js';
 import { Router } from '../../utils/router.js';
 
 let instance = null;

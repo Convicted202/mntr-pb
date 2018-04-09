@@ -26,7 +26,7 @@ export class Router {
   }
 
   getFragment () {
-    let fragment = '';
+    let fragment;
     const match = window.location.href.match(/#(.*)$/);
 
     fragment = match ? match[1] : '';
@@ -45,6 +45,10 @@ export class Router {
   navigate (path) {
     path = path ? path : '';
     window.location.href = `${window.location.href.replace(/#(.*)$/, '')}#${path}`;
+  }
+
+  navigateBackRoute () {
+    window.history.back();
   }
 
   matchRoute () {

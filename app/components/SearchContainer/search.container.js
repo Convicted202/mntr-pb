@@ -1,7 +1,7 @@
 import { SearchView } from '../Search/search.view.js';
 import { SearchController } from '../Search/search.controller.js';
 import { FilmsListView } from '../FilmsList/filmsList.view.js';
-import { Model } from '../../utils/model/model.js';
+import { Model } from '../../model/model.js';
 
 export class SearchContainer {
   constructor (query) {
