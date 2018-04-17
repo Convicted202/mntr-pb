@@ -4,8 +4,9 @@
   "description": "mentorship",
   "main": "index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=develop webpack",
-    "watch": "npm run build -- --watch",
+    "build": "npm run clean-dev && cross-env NODE_ENV=production webpack",
+    "clean-dev": "rimraf app/dist/*",
+    "watch": "npm run clean-dev && npm run build -- --watch",
     "start": "cross-env NODE_ENV=develop nodemon -w webpack.config.js -x webpack-dev-server --open",
     "lint": "eslint ./app",
     "precommit": "npm run lint",
@@ -52,6 +53,7 @@
     "sinon": "^4.4.6",
     "style-loader": "^0.20.3",
     "webpack": "^4.5.0",
+    "webpack-bundle-analyzer": "^2.11.1",
     "webpack-cli": "^2.0.12",
     "webpack-dev-server": "^3.1.1",
     "webpack-merge": "^4.1.2"
@@ -61,6 +63,7 @@
     "classnames": "^2.2.5",
     "dotenv": "^5.0.1",
     "es6-promise": "^4.2.4",
+    "jquery": "^3.3.1",
     "urijs": "^1.19.1",
     "whatwg-fetch": "^2.0.3"
   }
