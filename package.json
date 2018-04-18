@@ -4,10 +4,10 @@
   "description": "mentorship",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean-dev && cross-env NODE_ENV=production webpack",
+    "build": "cross-env NODE_ENV=development npm run clean-dev && webpack",
+    "watch": "cross-env NODE_ENV=development npm run build -- --watch",
     "clean-dev": "rimraf app/dist/*",
-    "watch": "npm run clean-dev && npm run build -- --watch",
-    "start": "cross-env NODE_ENV=develop nodemon -w webpack.config.js -x webpack-dev-server --open",
+    "start": "nodemon -w webpack.config.js -x webpack-dev-server --open",
     "lint": "eslint ./app",
     "precommit": "npm run lint",
     "test": "echo \"Error: no test specified\" && exit 1"
