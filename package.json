@@ -59,6 +59,7 @@
     "webpack-merge": "^4.1.2"
   },
   "dependencies": {
+    "bootstrap": "^4.1.0",
     "bootstrap-sass": "^3.3.7",
     "classnames": "^2.2.5",
     "dotenv": "^5.0.1",

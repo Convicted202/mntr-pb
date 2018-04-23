@@ -1,8 +1,8 @@
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './static/styles/styles.css';
 
-const i = 5;
+import { Router } from './router.js';
 
-(function () {
-  return i;
-})();
+const router = new Router();
 
+router.init();
